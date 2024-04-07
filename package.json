@@ -1,0 +1,41 @@
+{
+  "name": "parcel-reporter-notify",
+  "version": "2.12.0-rc.1",
+  "description": "",
+  "scripts": {
+    "build": "rimraf ./target && babel src/ -d lib/ && cp src/*.png lib/",
+    "flow": "flow",
+    "prepublishOnly": "npm ci && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/ol-loginov/parcel-reporter-notify"
+  },
+  "source": "src/Reporter.js",
+  "main": "lib/Reporter.js",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-flow": "^7.23.3",
+    "@parcel/babel-preset-env": "^2.10.3",
+    "flow-bin": "^0.136.0",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@parcel/logger": "^2.12.0",
+    "@parcel/plugin": "^2.12.0",
+    "@parcel/types": "^2.12.0",
+    "assert": "^2.0.0",
+    "node-notifier": "^10.0.1",
+    "yaml": "^1.10.0"
+  },
+  "files": [
+    "lib/*.js",
+    "lib/*.png"
+  ],
+  "engines": {
+    "parcel": "^2.12.0",
+    "node": ">= 12.0.0"
+  }
+}
