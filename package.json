@@ -5,7 +5,8 @@
   "scripts": {
     "build": "rimraf ./target && babel src/ -d lib/ && cp src/*.png lib/",
     "flow": "flow",
-    "prepublishOnly": "npm install && npm run build"
+    "prepublishOnly": "npm install && npm run build",
+    "test": "true"
   },
   "author": "",
   "license": "ISC",
