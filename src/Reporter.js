@@ -8,7 +8,6 @@ const badIcon = path.join(__dirname, 'notify-error.png');
 
 const notifierOptions = {
     sound: true,
-    icon: goodIcon,
     title: 'Parcel notify'
 };
 
@@ -16,9 +15,10 @@ const notifierOptions = {
 export default new Reporter({
     async report(opts: { event: { type: string }, options: PluginOptions }) {
         if (opts.event.type === 'buildSuccess') {
-            notifier.notify({...notifierOptions, message: 'Build success!'});
-        } else {
-            notifier.notify({...notifierOptions, icon: badIcon, message: `Build is broken, bro... (${opts.event.type})`});
+            notifier.notify({...notifierOptions, icon: goodIcon, message: 'Build success!'});
+        }
+        if (opts.event.type === 'buildFailure') {
+            notifier.notify({...notifierOptions, icon: badIcon, message: `Build is broken, bro...`});
         }
     },
 });

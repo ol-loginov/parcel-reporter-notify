@@ -1,6 +1,6 @@
 {
   "name": "parcel-reporter-notify",
-  "version": "2.12.0-rc.1",
+  "version": "2.12.0-rc.2",
   "description": "",
   "scripts": {
     "build": "rimraf ./target && babel src/ -d lib/ && cp src/*.png lib/",
