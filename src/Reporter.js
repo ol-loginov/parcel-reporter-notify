@@ -1,7 +1,7 @@
 //@flow
 import {Reporter} from '@parcel/plugin';
-import {PluginLogger} from '@parcel/logger';
 import path from 'path';
+import notifier from "node-notifier";
 
 const goodIcon = path.join(__dirname, 'notify.png');
 const badIcon = path.join(__dirname, 'notify-error.png');
@@ -12,12 +12,9 @@ const notifierOptions = {
     title: 'Parcel notify'
 };
 
-
-import notifier from "node-notifier";
-
 // noinspection JSUnusedGlobalSymbols
 export default new Reporter({
-    async report(opts: { event: { type: string }, options: PluginOptions, logger: PluginLogger }) {
+    async report(opts: { event: { type: string }, options: PluginOptions }) {
         if (opts.event.type === 'buildSuccess') {
             notifier.notify({...notifierOptions, message: 'Build success!'});
         } else {
